@@ -100,5 +100,20 @@ namespace ProjetoPI
             abrir.Show();
             this.Hide();
         }
+
+        private void btnPesquisaUsu_Click(object sender, EventArgs e)
+        {
+            frmCarregaDataGridDBUsu abrir = new frmCarregaDataGridDBUsu();
+            abrir.Show();
+            this.Hide();
+        }
+
+        private void btnPesquisaFunc_Click(object sender, EventArgs e)
+        {
+
+            frmCarregaDataGridDB abrir = new frmCarregaDataGridDB();
+            abrir.Show();
+            this.Hide();
+        }
     }
 }

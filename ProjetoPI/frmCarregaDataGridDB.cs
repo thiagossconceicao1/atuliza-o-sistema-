@@ -38,5 +38,11 @@ namespace ProjetoPI
 
         }
 
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            frmPesquisaFunc abrir = new frmPesquisaFunc();
+            abrir.Show();
+            this.Hide();
+        }
     }
 }

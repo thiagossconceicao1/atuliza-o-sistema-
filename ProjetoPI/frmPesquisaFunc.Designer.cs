@@ -38,6 +38,8 @@ namespace ProjetoPI
             this.lblDescricao = new System.Windows.Forms.Label();
             this.rdbNome = new System.Windows.Forms.RadioButton();
             this.rdbCodigo = new System.Windows.Forms.RadioButton();
+            this.btnPesquisaUsu = new System.Windows.Forms.Button();
+            this.btnPesquisaFunc = new System.Windows.Forms.Button();
             this.gpbPesquisar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,11 +47,11 @@ namespace ProjetoPI
             // 
             this.btnLimpar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpar.Image")));
-            this.btnLimpar.Location = new System.Drawing.Point(594, 227);
+            this.btnLimpar.Location = new System.Drawing.Point(411, 361);
             this.btnLimpar.Name = "btnLimpar";
-            this.btnLimpar.Size = new System.Drawing.Size(148, 145);
+            this.btnLimpar.Size = new System.Drawing.Size(148, 62);
             this.btnLimpar.TabIndex = 4;
-            this.btnLimpar.Text = "Limpar";
+            this.btnLimpar.Text = "&Limpar";
             this.btnLimpar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnLimpar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnLimpar.UseVisualStyleBackColor = true;
@@ -59,11 +61,11 @@ namespace ProjetoPI
             // 
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPesquisar.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisar.Image")));
-            this.btnPesquisar.Location = new System.Drawing.Point(594, 76);
+            this.btnPesquisar.Location = new System.Drawing.Point(591, 361);
             this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(148, 145);
+            this.btnPesquisar.Size = new System.Drawing.Size(148, 62);
             this.btnPesquisar.TabIndex = 3;
-            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.Text = "&Pesquisar";
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
@@ -72,7 +74,7 @@ namespace ProjetoPI
             // ltbItensPesquisados
             // 
             this.ltbItensPesquisados.FormattingEnabled = true;
-            this.ltbItensPesquisados.Location = new System.Drawing.Point(61, 227);
+            this.ltbItensPesquisados.Location = new System.Drawing.Point(27, 163);
             this.ltbItensPesquisados.Name = "ltbItensPesquisados";
             this.ltbItensPesquisados.Size = new System.Drawing.Size(515, 147);
             this.ltbItensPesquisados.TabIndex = 5;
@@ -85,7 +87,7 @@ namespace ProjetoPI
             this.gpbPesquisar.Controls.Add(this.rdbNome);
             this.gpbPesquisar.Controls.Add(this.rdbCodigo);
             this.gpbPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbPesquisar.Location = new System.Drawing.Point(59, 76);
+            this.gpbPesquisar.Location = new System.Drawing.Point(25, 12);
             this.gpbPesquisar.Name = "gpbPesquisar";
             this.gpbPesquisar.Size = new System.Drawing.Size(517, 145);
             this.gpbPesquisar.TabIndex = 8;
@@ -133,11 +135,41 @@ namespace ProjetoPI
             this.rdbCodigo.UseVisualStyleBackColor = true;
             this.rdbCodigo.CheckedChanged += new System.EventHandler(this.rdbCodigo_CheckedChanged);
             // 
+            // btnPesquisaUsu
+            // 
+            this.btnPesquisaUsu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisaUsu.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisaUsu.Image")));
+            this.btnPesquisaUsu.Location = new System.Drawing.Point(234, 361);
+            this.btnPesquisaUsu.Name = "btnPesquisaUsu";
+            this.btnPesquisaUsu.Size = new System.Drawing.Size(148, 62);
+            this.btnPesquisaUsu.TabIndex = 9;
+            this.btnPesquisaUsu.Text = "&Pesquisa Usu";
+            this.btnPesquisaUsu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPesquisaUsu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPesquisaUsu.UseVisualStyleBackColor = true;
+            this.btnPesquisaUsu.Click += new System.EventHandler(this.btnPesquisaUsu_Click);
+            // 
+            // btnPesquisaFunc
+            // 
+            this.btnPesquisaFunc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPesquisaFunc.Image = ((System.Drawing.Image)(resources.GetObject("btnPesquisaFunc.Image")));
+            this.btnPesquisaFunc.Location = new System.Drawing.Point(67, 361);
+            this.btnPesquisaFunc.Name = "btnPesquisaFunc";
+            this.btnPesquisaFunc.Size = new System.Drawing.Size(148, 62);
+            this.btnPesquisaFunc.TabIndex = 10;
+            this.btnPesquisaFunc.Text = "&Pesquisa Func";
+            this.btnPesquisaFunc.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPesquisaFunc.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnPesquisaFunc.UseVisualStyleBackColor = true;
+            this.btnPesquisaFunc.Click += new System.EventHandler(this.btnPesquisaFunc_Click);
+            // 
             // frmPesquisaFunc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnPesquisaFunc);
+            this.Controls.Add(this.btnPesquisaUsu);
             this.Controls.Add(this.btnLimpar);
             this.Controls.Add(this.btnPesquisar);
             this.Controls.Add(this.ltbItensPesquisados);
@@ -161,5 +193,7 @@ namespace ProjetoPI
         private System.Windows.Forms.Label lblDescricao;
         private System.Windows.Forms.RadioButton rdbNome;
         private System.Windows.Forms.RadioButton rdbCodigo;
+        private System.Windows.Forms.Button btnPesquisaUsu;
+        private System.Windows.Forms.Button btnPesquisaFunc;
     }
 }

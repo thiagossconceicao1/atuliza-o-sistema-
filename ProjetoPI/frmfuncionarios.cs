@@ -234,7 +234,7 @@ namespace ProjetoPI
             comm.Parameters.Add("@telefone", MySqlDbType.VarChar, 20).Value = mskTelefone.Text;
             comm.Parameters.Add("@cpf", MySqlDbType.VarChar, 14).Value = mskCPF.Text;
             comm.Parameters.Add("@siglaEst", MySqlDbType.VarChar, 2).Value = cbbEstado.Text;
-            comm.Parameters.Add("@cep", MySqlDbType.VarChar, 10).Value = mskCEP.Text;
+            comm.Parameters.Add("@cep", MySqlDbType.VarChar, 10).Value = mskCEP.Text;   
             comm.Parameters.Add("@cidade", MySqlDbType.VarChar, 50).Value = txtCidade.Text;
             comm.Parameters.Add("@bairro", MySqlDbType.VarChar, 50).Value = txtBairro.Text;
             comm.Parameters.Add("@numero", MySqlDbType.VarChar, 14).Value = txtNum.Text;
