@@ -151,7 +151,7 @@ namespace ProjetoPI
         public void pesquisarCampo(string cargo)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbFuncionarios where cargo = '" + cargo + "';";
+            comm.CommandText = "select * from tbFuncionarios where nome = '" + cargo + "';";
             comm.CommandType = CommandType.Text;
 
             comm.Connection = Conexao.obterConexao();

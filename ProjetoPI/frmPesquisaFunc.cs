@@ -45,6 +45,28 @@ namespace ProjetoPI
                 //ltbItensPesquisados.Items.Add(txtDescricao.Text);
                 pesquisaNome(txtDescricao.Text);
             }
+            else  
+            {
+               
+            }
+          
+        }
+        public bool acessaBanco(string nomeUsu)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbUsuario where nomeUsu = '" + nomeUsu + "';";
+            comm.CommandType = CommandType.Text;
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+
+            DR = comm.ExecuteReader();
+
+            bool resposta = DR.HasRows;
+
+            Conexao.fecharConexao();
+
+            return resposta;
         }
         private void btnLimpar_Click(object sender, EventArgs e)
         {
@@ -56,38 +78,64 @@ namespace ProjetoPI
         }
         public void pesquisaCodigo(string codigo)
         {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbFuncionarios where codFunc = " + codigo + ";";
-            comm.CommandType = CommandType.Text;
-            comm.Connection = Conexao.obterConexao();
-
-            MySqlDataReader DR;
-            DR = comm.ExecuteReader();
-            DR.Read();
-
-            ltbItensPesquisados.Items.Clear();
-
-            ltbItensPesquisados.Items.Add(DR.GetString(1));
-
-            Conexao.fecharConexao();
-        }
-        public void pesquisaNome(string nome)
-        {
-            MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbFuncionarios where nome like '%" + nome + "%';";
-            comm.CommandType = CommandType.Text;
-            comm.Connection = Conexao.obterConexao();
-
-            MySqlDataReader DR;
-
-            DR = comm.ExecuteReader();
-
-            ltbItensPesquisados.Items.Clear();
-
-            while (DR.Read())
+            bool validaCod = acessaBanco(codigo);
+            if (validaCod)
             {
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "select * from tbFuncionarios where codFunc = " + codigo + ";";
+                comm.CommandType = CommandType.Text;
+                comm.Connection = Conexao.obterConexao();
+
+                MySqlDataReader DR;
+                DR = comm.ExecuteReader();
+                DR.Read();
+
+                ltbItensPesquisados.Items.Clear();
 
                 ltbItensPesquisados.Items.Add(DR.GetString(1));
+            }
+            else
+            {
+                acessaBanco(txtDescricao.Text);
+                MessageBox.Show("O usuario não existe no Banco!!!",
+                    "Aviso do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
+            }
+            Conexao.fecharConexao();
+        }
+
+        
+        public void pesquisaNome(string nome)
+        {
+            bool validaNome = acessaBanco(nome);
+            if (validaNome)
+            {
+                MySqlCommand comm = new MySqlCommand();
+                comm.CommandText = "select * from tbFuncionarios where nome like '%" + nome + "%';";
+                comm.CommandType = CommandType.Text;
+                comm.Connection = Conexao.obterConexao();
+
+                MySqlDataReader DR;
+
+                DR = comm.ExecuteReader();
+
+                ltbItensPesquisados.Items.Clear();
+
+                while (DR.Read())
+                {
+                    ltbItensPesquisados.Items.Add(DR.GetString(1));
+                }
+            }
+            else
+            {
+                acessaBanco(txtDescricao.Text);
+                MessageBox.Show("O usuario não existe no Banco!!!",
+                    "Aviso do sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1);
             }
             Conexao.fecharConexao();
         }
@@ -103,9 +151,11 @@ namespace ProjetoPI
 
         private void btnPesquisaUsu_Click(object sender, EventArgs e)
         {
-            frmCarregaDataGridDBUsu abrir = new frmCarregaDataGridDBUsu();
-            abrir.Show();
-            this.Hide();
+                //Abrir outra janela
+                frmCarregaDataGridDBUsu abrir = new frmCarregaDataGridDBUsu();
+                abrir.Show();
+                this.Hide();
+           
         }
 
         private void btnPesquisaFunc_Click(object sender, EventArgs e)
@@ -115,5 +165,9 @@ namespace ProjetoPI
             abrir.Show();
             this.Hide();
         }
+
+        
+
+
     }
 }
